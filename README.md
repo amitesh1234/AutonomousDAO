@@ -21,6 +21,8 @@ npm install
 
 # Create .env file
 touch .env
+```
+
 
 .env contents:
 PRIVATE_KEY=your_wallet_private_key_without_0x
@@ -61,11 +63,13 @@ User
 
 ```bash
 npx hardhat compile
+```
 
 2. Deploy USing Ignition
 
 ```bash
 npx hardhat ignition deploy ignition/modules/DAOModule.ts --network sepolia
+```
 
 This will deploy:
 

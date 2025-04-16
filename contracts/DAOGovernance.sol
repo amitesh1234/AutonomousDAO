@@ -40,6 +40,7 @@ contract DAOGovernance {
     }
 
     function vote(uint256 proposalId, bool support) external {
+        require(proposalId < proposalCount, "Proposal does not exist");
         Proposal storage p = proposals[proposalId];
         require(block.timestamp <= p.deadline, "Voting closed");
         require(p.votes[msg.sender] == VoteType.NONE, "Already voted");
