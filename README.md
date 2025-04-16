@@ -33,7 +33,7 @@ INFURA_API_KEY=your_infura_or_alchemy_project_id
 
 ## 🔧 Architecture Overview
 
-
+```bash
 User
  │
  ├── stakes ETH ──────────────┐
@@ -54,6 +54,7 @@ User
                        ┌──────────────────┐
                        │ DAO Governance   │
                        └──────────────────┘
+'''
 
 ---
 
@@ -85,6 +86,7 @@ Make sure your .env is configured before running.
 
 ```bash
 npx hardhat test
+```
 
 The test suite covers:
 
@@ -105,9 +107,9 @@ Includes test for emitted events and voting results.
 
 ## Public Contract Address
 
-GovToken: 0xfBb8E023Ab050f0B16970ac6a216a53043d73494
-Staking: 0x601EEe50ADEa0E1a389122A4a43366e2d445e23A
-Governance: 0x5462F5937078430611c54378A76Ce8fD8856ad90
+GovToken: 0x647C506ADA4441dD696000E3B49B1893D5E2eB9A
+Staking: 0x11bFe6C975Dd81C2F6cE6Aaa501DEc9aeCab6ED1
+Governance: 0x9eC74B39f1edb3a84863DBE662d9CCD2757a317E
 
 
 
@@ -129,7 +131,7 @@ minimal-dao/
 ├── .env
 ├── hardhat.config.ts
 └── README.md
-
+```
 ---
 
 ## Features & Design
