@@ -1,7 +1,7 @@
 # 🏛️ Minimal DAO Ecosystem
 
 
-# --------FOR THIS UPGRADEABLE PART, STILL WORKING ON DEPLOYMENT SCRIPT--------------- #
+# --------FOR THIS UPGRADEABLE PART, STILL WORKING ON TESTS--------------- #
 
 A complete minimal DAO ecosystem built with:
 
@@ -110,9 +110,13 @@ Includes test for emitted events and voting results.
 
 ## Public Contract Address
 
-GovToken: 0x647C506ADA4441dD696000E3B49B1893D5E2eB9A
-Staking: 0x11bFe6C975Dd81C2F6cE6Aaa501DEc9aeCab6ED1
-Governance: 0x9eC74B39f1edb3a84863DBE662d9CCD2757a317E
+ProxyAdmin: 0x1513C48B65226eEfBc2B1eE84bcbd2255612Cd1B
+GovTokenImpl: 0xa2806C13B4AcEf13d2764A1bcB968Dd8b2B34A82
+GovTokenTransparentUpGreadableProxy: 0x00dA338EF05Ed7150F4decB3572eb86FB8028397
+GovStakingImpl: 0x201947dbA627B7C32D751E3fAC860e1fbD383F62
+GovStakingTransparentUpGreadableProxy: 0x15e8b6475A1BD18B171C2d76dD95377c3a89FC28
+DAOGovernanceImpl: 0xAE8BCBDbe0B2BE71b709b2dF32F241C3C2930252
+DAOGovernanceTransparentUpGreadableProxy: 0x6955c81a2C813613bb597ba4bceBC87B70b9eB71
 
 
 

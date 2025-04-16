@@ -95,7 +95,7 @@ describe("Minimal DAO System", function () {
 
         await time.increase(301);
         const status = await governance.getProposalStatus(0);
-        
+
         expect(status).to.equal("Failed")
     });
 

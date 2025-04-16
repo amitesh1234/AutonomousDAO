@@ -10,6 +10,10 @@ const config: HardhatUserConfig = {
       accounts: [process.env.PRIVATE_KEY ? `0x${process.env.PRIVATE_KEY}` : ""],
     }
   },
+  paths: {
+    artifacts: "./artifacts",
+    sources: "./contracts"
+  }
 };
 
 export default config;
