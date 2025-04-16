@@ -3,12 +3,11 @@
 
 pragma solidity ^0.8.22;
 
-// import { Ownable } from "@openzeppelin/contracts/access/Ownable.sol";
-import { ReentrancyGuard } from "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
-// import { IERC20 } from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import { GovToken } from "./GovToken.sol";
+import "@openzeppelin/contracts-upgradeable/utils/ReentrancyGuardUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
+import "./GovToken.sol"; // Assume GovToken is already upgradeable
 
-contract GovStaking is ReentrancyGuard {
+contract GovStaking is Initializable, ReentrancyGuardUpgradeable {
     // IERC20 public baseToken;
     GovToken public govToken;
     uint256 public rewardRatePerSecond;
@@ -24,12 +23,18 @@ contract GovStaking is ReentrancyGuard {
     event Unstaked(address indexed user, uint256 amount);
     event RewardClaimed(address indexed user, uint256 amount);
 
-    constructor(GovToken _govToken, uint256 _rewardRatePerSecond) {
-        govToken = _govToken;
+    /// @custom:oz-upgrades-unsafe-allow constructor
+    constructor() {
+        _disableInitializers();
+    }
+
+    function initialize(address _govToken, uint256 _rewardRatePerSecond) public initializer {
+        __ReentrancyGuard_init();
+        govToken = GovToken(_govToken);
         rewardRatePerSecond = _rewardRatePerSecond;
     }
 
-     function stake() external payable {
+    function stake() external payable {
         require(msg.value > 0, "Stake > 0");
 
         StakeInfo storage info = stakes[msg.sender];

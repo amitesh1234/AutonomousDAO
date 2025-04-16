@@ -5,10 +5,10 @@ pragma solidity ^0.8.22;
 
 // import { Ownable } from "@openzeppelin/contracts/access/Ownable.sol";
 // import { ReentrancyGuard } from "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
-import { IERC20 } from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import { GovToken } from "./GovToken.sol";
 
-contract DAOGovernance {
+contract DAOGovernance is Initializable {
     GovToken public govToken;
     uint256 public proposalCount = 0;
 
@@ -27,8 +27,13 @@ contract DAOGovernance {
     event ProposalCreated(uint256 indexed proposalId, uint256 deadline);
     event Voted(uint256 indexed proposalId, address indexed voter, bool support, uint256 weight);
 
-    constructor(GovToken _govToken) {
-        govToken = _govToken;
+    constructor() {
+        _disableInitializers();
+    }
+
+    function initialize(address _govToken) public initializer {
+        govToken = GovToken(_govToken);
+        proposalCount = 0;
     }
 
     function createProposal(string memory _description, uint256 durationSeconds) external {

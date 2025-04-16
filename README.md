@@ -1,5 +1,8 @@
 # 🏛️ Minimal DAO Ecosystem
 
+
+# --------FOR THIS UPGRADEABLE PART, STILL WORKING ON DEPLOYMENT SCRIPT--------------- #
+
 A complete minimal DAO ecosystem built with:
 
 - **ERC-20-based governance token** (GovToken)
